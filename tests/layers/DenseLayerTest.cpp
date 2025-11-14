@@ -1,7 +1,8 @@
-#include <gtest/gtest.h>
-
 #include <layers/DenseLayer.hpp>
+
+#include <gtest/gtest.h>
 #include <Eigen/Dense>
+#include <memory>
 
 class DenseLayerTest : public ::testing::Test {
 protected:

@@ -5,5 +5,7 @@ add_executable(nn_main
     layers/DenseLayer.cpp
 )
 
+add_subdirectory(layers)
+
 target_include_directories(nn_main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(nn_main PRIVATE Eigen3::Eigen)
+target_link_libraries(nn_main PRIVATE Eigen3::Eigen nn_layers)
