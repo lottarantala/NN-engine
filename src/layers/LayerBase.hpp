@@ -17,7 +17,7 @@ public:
     LayerBase& operator=(LayerBase&&) = default;
 
     virtual Eigen::VectorXd forward(const Eigen::VectorXd& inputs) = 0;
-    virtual Eigen::VectorXd backward() = 0;
+    virtual Eigen::VectorXd backward(const Eigen::VectorXd& delta) = 0;
     virtual void update() = 0;
 };
 
