@@ -7,11 +7,16 @@ namespace layer {
 DenseLayer::DenseLayer(int inputSize, int outputSize)
     : inputSize{inputSize}
     , outputSize{outputSize}
-{}
-
-Eigen::VectorXd DenseLayer::forward()
+    , weights{Eigen::MatrixXd::Ones(outputSize, inputSize)} // TODO: weight initialization functions
+    , bias{Eigen::VectorXd::Ones(outputSize)}
+    , intermediateOutput{Eigen::VectorXd::Zero(outputSize)}
 {
-    return {};
+}
+
+Eigen::VectorXd DenseLayer::forward(const Eigen::VectorXd& inputs)
+{
+    intermediateOutput = (weights * inputs) + bias;
+    return intermediateOutput;
 }
 
 Eigen::VectorXd DenseLayer::backward()
