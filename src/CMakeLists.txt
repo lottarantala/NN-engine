@@ -1,4 +1,9 @@
-add_library(nn_layers INTERFACE)
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
-target_link_libraries(nn_layers INTERFACE Eigen3::Eigen)
-target_include_directories(nn_layers INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(nn_main
+    main.cpp
+    layers/DenseLayer.cpp
+)
+
+target_include_directories(nn_main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(nn_main PRIVATE Eigen3::Eigen)

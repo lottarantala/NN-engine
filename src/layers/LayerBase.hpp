@@ -7,7 +7,7 @@ namespace layer {
 class LayerBase
 {
 public:
-    LayerBase();
+    LayerBase() = default;
     virtual ~LayerBase() = default;
 
     LayerBase(const LayerBase&) = delete;
@@ -18,7 +18,7 @@ public:
 
     virtual Eigen::VectorXd forward() = 0;
     virtual Eigen::VectorXd backward() = 0;
-    virtual Eigen::VectorXd update() = 0;
+    virtual void update() = 0;
 };
 
 } // namespace layer
