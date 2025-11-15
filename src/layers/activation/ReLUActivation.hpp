@@ -24,7 +24,7 @@ public:
 
     Eigen::VectorXd backward(const Eigen::VectorXd& delta)
     {
-        return (lastInput.array() > 0).select(delta, 0);
+        return (lastInput.array() > 0).select(delta, 0).matrix();
     }
 
 private:

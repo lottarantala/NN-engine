@@ -10,7 +10,7 @@ class TanhActivation : public Activation
 {
 public:
     explicit TanhActivation(int inputSize)
-        : lastInput{Eigen::VectorXd::Zero(inputSize)}
+        : lastOutput{Eigen::VectorXd::Zero(inputSize)}
     {
     }
 
@@ -18,17 +18,17 @@ public:
 
     Eigen::VectorXd forward(const Eigen::VectorXd& input)
     {
-        lastInput = input;
-        return {};
+        lastOutput = input.array().tanh().matrix();
+        return lastOutput;
     }
 
     Eigen::VectorXd backward(const Eigen::VectorXd& delta)
     {
-        return {};
+        return (delta.array() * (1.0 - lastOutput.array().square())).matrix();
     }
 
 private:
-    Eigen::VectorXd lastInput;
+    Eigen::VectorXd lastOutput;
 };
 
 } // namespace layer

@@ -10,7 +10,7 @@ class SigmoidActivation : public Activation
 {
 public:
     explicit SigmoidActivation(int inputSize)
-        : lastInput{Eigen::VectorXd::Zero(inputSize)}
+        : lastOutput{Eigen::VectorXd::Zero(inputSize)}
     {
     }
 
@@ -18,17 +18,17 @@ public:
 
     Eigen::VectorXd forward(const Eigen::VectorXd& input)
     {
-        lastInput = input;
-        return {};
+        lastOutput = (1.0 / (1.0 + (-input.array()).exp())).matrix();
+        return lastOutput;
     }
 
     Eigen::VectorXd backward(const Eigen::VectorXd& delta)
     {
-        return {};
+        return (delta.array() * lastOutput.array() * (1.0 - lastOutput.array())).matrix();
     }
 
 private:
-    Eigen::VectorXd lastInput;
+    Eigen::VectorXd lastOutput;
 };
 
 } // namespace layer

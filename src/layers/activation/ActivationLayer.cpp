@@ -1,7 +1,6 @@
 #include "ActivationLayer.hpp"
 #include "Activation.hpp"
 
-#include <cmath>
 #include <Eigen/Dense>
 #include <memory>
 
