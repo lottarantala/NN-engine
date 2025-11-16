@@ -1,5 +1,4 @@
 #include <layers/activation/ActivationLayer.hpp>
-#include <layers/activation/Activation.hpp>
 #include <layers/activation/LeakyReLUActivation.hpp>
 #include <layers/activation/ReLUActivation.hpp>
 #include <layers/activation/SigmoidActivation.hpp>
