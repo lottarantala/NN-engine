@@ -6,7 +6,7 @@ namespace layer {
 
 DenseLayer::DenseLayer(int inputSize, int outputSize, double learningRate)
     : learningRate{learningRate}
-    , weights{Eigen::MatrixXd::Ones(outputSize, inputSize)} // TODO: weight initialization functions
+    , weights{Eigen::MatrixXd::Random(outputSize, inputSize) * 0.1} // TODO: weight initialization functions
     , bias{Eigen::VectorXd::Ones(outputSize)}
     , intermediateOutput{Eigen::VectorXd::Zero(outputSize)}
     , lastInput{Eigen::VectorXd::Zero(inputSize)}
