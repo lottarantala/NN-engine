@@ -4,11 +4,16 @@
 
 #include <Eigen/Dense>
 
+namespace weights {
+class WeightInitializerIfc;
+} // namespace weights
+
 namespace layer {
 
 class DenseLayer : public LayerBase
 {
 public:
+    DenseLayer(const int inputSize, const int outputSize, const double learningRate, const weights::WeightInitializerIfc& weightInitializer);
     DenseLayer(const int inputSize, const int outputSize, const double learningRate);
     virtual ~DenseLayer() = default;
 

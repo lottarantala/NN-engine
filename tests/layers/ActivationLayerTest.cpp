@@ -8,7 +8,9 @@
 #include <Eigen/Dense>
 #include <memory>
 
-class ActivationLayerTest : public ::testing::Test {
+namespace {
+class ActivationLayerTest : public ::testing::Test
+{
 protected:
     const int inputSize = 5;
     const double epsilon = 1e-4;
@@ -81,3 +83,4 @@ TEST_F(ActivationLayerTest, sigmoidActivation)
     EXPECT_TRUE(layerOutput.isApprox(expectedOutput, epsilon));
     EXPECT_TRUE(layerGradient.isApprox(expectedGradient, epsilon));
 }
+} // namespace

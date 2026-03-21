@@ -1,13 +1,16 @@
 #include <layers/DenseLayer.hpp>
+#include <layers/initialization/WeightInitializers.hpp>
 
 #include <gtest/gtest.h>
 #include <Eigen/Dense>
 #include <memory>
 
-class DenseLayerTest : public ::testing::Test {
+namespace {
+class DenseLayerTest : public ::testing::Test
+{
 protected:
     void SetUp() override {
-        layer = std::make_unique<layer::DenseLayer>(inputSize, outputSize, learningRate);
+        layer = std::make_unique<layer::DenseLayer>(inputSize, outputSize, learningRate, weights::OneInitializer{});
     }
 
     const int inputSize = 3;
@@ -46,7 +49,7 @@ TEST_F(DenseLayerTest, backwardPass)
 
 TEST_F(DenseLayerTest, twoLayerForwardAndBackwardPass)
 {
-    auto layer2 = std::make_unique<layer::DenseLayer>(outputSize, outputSize, learningRate);
+    auto layer2 = std::make_unique<layer::DenseLayer>(outputSize, outputSize, learningRate, weights::OneInitializer{});
     const Eigen::VectorXd inputs = (Eigen::VectorXd(3) << 1, 2, 3).finished();
     const auto output1 = layer->forward(inputs); // [7, 7]
 
@@ -73,3 +76,4 @@ TEST_F(DenseLayerTest, twoLayerForwardAndBackwardPass)
     EXPECT_EQ(expectedGrad1, grad1);
     EXPECT_EQ(expectedGrad2, grad2);
 }
+} // namespace
