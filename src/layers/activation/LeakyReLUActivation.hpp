@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Activation.hpp"
+#include "ActivationIfc.hpp"
 
 #include <Eigen/Dense>
 
 namespace layer {
 
-class LeakyReLUActivation : public Activation
+class LeakyReLUActivation : public ActivationIfc
 {
 public:
     explicit LeakyReLUActivation(int inputSize, double alpha)

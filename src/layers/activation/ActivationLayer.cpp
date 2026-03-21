@@ -1,12 +1,12 @@
 #include "ActivationLayer.hpp"
-#include "Activation.hpp"
+#include "ActivationIfc.hpp"
 
 #include <Eigen/Dense>
 #include <memory>
 
 namespace layer {
 
-ActivationLayer::ActivationLayer(std::unique_ptr<Activation> activationFunction)
+ActivationLayer::ActivationLayer(std::unique_ptr<ActivationIfc> activationFunction)
     : activationFunction{std::move(activationFunction)}
 {
 }

@@ -1,17 +1,17 @@
 #pragma once
 
 #include "LayerBase.hpp"
-#include "Activation.hpp"
 
 #include <Eigen/Dense>
 #include <memory>
 
 namespace layer {
+class ActivationIfc;
 
 class ActivationLayer : public LayerBase
 {
 public:
-    ActivationLayer(std::unique_ptr<Activation> activationFunction);
+    ActivationLayer(std::unique_ptr<ActivationIfc> activationFunction);
     virtual ~ActivationLayer() = default;
 
     Eigen::VectorXd forward(const Eigen::VectorXd& inputs) override;
@@ -19,7 +19,7 @@ public:
     void update() override;
 
 private:
-    std::unique_ptr<Activation> activationFunction;
+    std::unique_ptr<ActivationIfc> activationFunction;
 };
 
 } // namespace layer

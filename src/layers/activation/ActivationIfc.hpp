@@ -4,10 +4,11 @@
 
 namespace layer {
 
-class Activation
+class ActivationIfc
 {
 public:
-    virtual ~Activation() = default;
+    ActivationIfc() noexcept = default;
+    virtual ~ActivationIfc() = default;
     virtual Eigen::VectorXd forward(const Eigen::VectorXd& inputs) = 0;
     virtual Eigen::VectorXd backward(const Eigen::VectorXd& delta) = 0;
 };

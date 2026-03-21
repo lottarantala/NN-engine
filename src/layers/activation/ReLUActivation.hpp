@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Activation.hpp"
+#include "ActivationIfc.hpp"
 
 #include <Eigen/Dense>
 
 namespace layer {
 
-class ReLUActivation : public Activation
+class ReLUActivation : public ActivationIfc
 {
 public:
     explicit ReLUActivation(int inputSize)

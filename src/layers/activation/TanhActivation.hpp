@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Activation.hpp"
+#include "ActivationIfc.hpp"
 
 #include <Eigen/Dense>
 
 namespace layer {
 
-class TanhActivation : public Activation
+class TanhActivation : public ActivationIfc
 {
 public:
     explicit TanhActivation(int inputSize)

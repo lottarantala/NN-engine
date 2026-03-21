@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Activation.hpp"
+#include "ActivationIfc.hpp"
 
 #include <Eigen/Dense>
 
 namespace layer {
 
-class SigmoidActivation : public Activation
+class SigmoidActivation : public ActivationIfc
 {
 public:
     explicit SigmoidActivation(int inputSize)
