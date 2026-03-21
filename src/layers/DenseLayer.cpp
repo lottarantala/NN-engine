@@ -4,7 +4,7 @@
 
 namespace layer {
 
-DenseLayer::DenseLayer(int inputSize, int outputSize, double learningRate)
+DenseLayer::DenseLayer(const int inputSize, const int outputSize, const double learningRate)
     : learningRate{learningRate}
     , weights{Eigen::MatrixXd::Ones(outputSize, inputSize)} // TODO: weight initialization functions
     , bias{Eigen::VectorXd::Ones(outputSize)}

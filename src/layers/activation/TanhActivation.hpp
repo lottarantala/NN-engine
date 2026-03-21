@@ -9,7 +9,7 @@ namespace layer {
 class TanhActivation : public ActivationIfc
 {
 public:
-    explicit TanhActivation(int inputSize)
+    explicit TanhActivation(const int inputSize)
         : lastOutput{Eigen::VectorXd::Zero(inputSize)}
     {
     }

@@ -9,7 +9,7 @@ namespace layer {
 class LeakyReLUActivation : public ActivationIfc
 {
 public:
-    explicit LeakyReLUActivation(int inputSize, double alpha)
+    explicit LeakyReLUActivation(const int inputSize, const double alpha)
         : lastInput{Eigen::VectorXd::Zero(inputSize)}
         , alpha{alpha}
     {

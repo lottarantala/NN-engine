@@ -9,7 +9,7 @@ namespace layer {
 class ReLUActivation : public ActivationIfc
 {
 public:
-    explicit ReLUActivation(int inputSize)
+    explicit ReLUActivation(const int inputSize)
         : lastInput{Eigen::VectorXd::Zero(inputSize)}
     {
     }

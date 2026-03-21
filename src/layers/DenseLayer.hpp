@@ -9,7 +9,7 @@ namespace layer {
 class DenseLayer : public LayerBase
 {
 public:
-    DenseLayer(int inputSize, int outputSize, double learningRate);
+    DenseLayer(const int inputSize, const int outputSize, const double learningRate);
     virtual ~DenseLayer() = default;
 
     Eigen::VectorXd forward(const Eigen::VectorXd& inputs) override;

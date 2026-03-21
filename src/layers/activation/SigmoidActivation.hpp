@@ -9,7 +9,7 @@ namespace layer {
 class SigmoidActivation : public ActivationIfc
 {
 public:
-    explicit SigmoidActivation(int inputSize)
+    explicit SigmoidActivation(const int inputSize)
         : lastOutput{Eigen::VectorXd::Zero(inputSize)}
     {
     }
